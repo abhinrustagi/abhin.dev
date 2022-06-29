@@ -1,0 +1,13 @@
+[
+	{
+		"title": "System",
+		"items": ["", "Keychron K2V2"]
+	},
+	{
+		"title": "Coding",
+		"items": ["Editor: VSCode Studio", "Theme: Vitesse Dark", "Terminal: Bash"]
+	},
+	{ "title": "Spotify", "items": ["Spotify", "Postman", ""] },
+	{ "title": "Design", "items": ["Figma", "Adobe Illustrator"] },
+	{ "title": "Other", "items": ["Kindle"] }
+]

@@ -1,29 +1,43 @@
+import { Header } from 'components'
 import type { NextPage } from 'next'
-import Head from 'next/head'
+import Image from 'next/image'
 import Link from 'next/link'
 
 const Home: NextPage = () => {
 	return (
-		<>
-			<Head>
-				<title>Under Construction – Abhin Rustagi</title>
-			</Head>
-			<div className="mx-auto max-w-2xl px-6">
-				<span className="text-lg mt-5 block text-amber-400">Abhin Rustagi</span>
-				<h1 className="text-5xl my-6">Under Construction</h1>
-				<p>
-					Hello, I&apos;m currently redesigning my portfolio. Please check in
-					again in some time.
-				</p>
-				<p className="mt-4">
-					Meanwhile, please feel free to contact me at{' '}
-					<Link href="mailto:hi@abhin.dev">
-						<a className="text-stone-50 font-medium underline">hi@abhin.dev</a>
-					</Link>
-					.
-				</p>
+		<div className="mx-auto max-w-2xl sm:px-0 px-6">
+			<Header />
+			<div className="flex justify-between md:items-center md:flex-row-reverse md:flex-nowrap flex-wrap flex-col">
+				<div className="relative h-28 w-28 md:mb-0 mb-12">
+					<Image
+						src="/headshot.jpg"
+						alt=""
+						layout="fill"
+						className="rounded-full"
+					/>
+				</div>
+				<div className="flex-1 md:mr-12">
+					<h1 className="text-5xl font-extrabold">Abhin Rustagi</h1>
+					<h2 className="font-normal font-body text-lg text-neutral-300 my-3">
+						Product Engineer at{' '}
+						<Link href="https://www.openhouse.study" passHref>
+							<a
+								target="_blank"
+								rel="noopener noreferrer"
+								className="hover:text-neutral-500 text-neutral-200 font-medium"
+							>
+								Openhouse
+							</a>
+						</Link>
+					</h2>
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque
+						labore odit repellendus animi delectus dolorum soluta nemo porro est
+						aliquid voluptate.
+					</p>
+				</div>
 			</div>
-		</>
+		</div>
 	)
 }
 
