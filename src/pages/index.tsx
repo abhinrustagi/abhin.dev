@@ -1,12 +1,11 @@
-import { Header } from 'components'
+import { Container, Header } from 'components'
 import type { NextPage } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 
 const Home: NextPage = () => {
 	return (
-		<div className="mx-auto max-w-2xl sm:px-0 px-6">
-			<Header />
+		<Container>
 			<div className="flex justify-between md:items-center md:flex-row-reverse md:flex-nowrap flex-wrap flex-col">
 				<div className="relative h-28 w-28 md:mb-0 mb-12">
 					<Image
@@ -37,7 +36,7 @@ const Home: NextPage = () => {
 					</p>
 				</div>
 			</div>
-		</div>
+		</Container>
 	)
 }
 

@@ -1,9 +1,11 @@
+/* eslint-disable @next/next/next-script-for-ga */
+import { config, isProd } from 'helpers'
 import Document, {
-	Html,
+	DocumentContext,
 	Head,
+	Html,
 	Main,
 	NextScript,
-	DocumentContext,
 } from 'next/document'
 
 class MyDocument extends Document {
@@ -29,10 +31,6 @@ class MyDocument extends Document {
 		return (
 			<Html>
 				<Head>
-					<meta
-						content="bgqtiQYbl0yMe_CYQZD3t9hvQvcHh_uUMw74V7xxZh8"
-						name="google-site-verification"
-					/>
 					<link rel="preconnect" href="https://fonts.googleapis.com" />
 					<link
 						rel="preconnect"
@@ -40,9 +38,27 @@ class MyDocument extends Document {
 						crossOrigin=""
 					/>
 					<link
-						href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"
+						href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;700&display=swap"
 						rel="stylesheet"
 					/>
+					{isProd && (
+						<>
+							<script
+								async
+								src={`https://www.googletagmanager.com/gtag/js?id=${config.GOOGLE_ANALYTICS_ID}`}
+							/>
+							<script
+								dangerouslySetInnerHTML={{
+									__html: `
+            				  window.dataLayer = window.dataLayer || [];
+            				  function gtag(){dataLayer.push(arguments);}
+            				  gtag('js', new Date());
+            				  gtag('config', '${config.GOOGLE_ANALYTICS_ID}', { page_path: window.location.pathname });
+            				`,
+								}}
+							/>
+						</>
+					)}
 				</Head>
 				<body>
 					<Main />
