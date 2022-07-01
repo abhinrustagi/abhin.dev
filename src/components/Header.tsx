@@ -1,10 +1,9 @@
+import React from 'react'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { HiOutlineMenuAlt4, HiOutlineX } from 'react-icons/hi'
 
 export const Header = () => {
-	const router = useRouter()
 	const [expanded, setExpanded] = useState(false)
 
 	const menuItems = [
@@ -12,40 +11,35 @@ export const Header = () => {
 			text: 'Home',
 			path: '/',
 		},
-		{ text: 'About Me', path: '/about-me' },
+		{ text: 'About', path: '/about' },
 		{ text: 'Resume', path: '/resume' },
 	]
 
 	const toggle = () => setExpanded(!expanded)
 
 	return (
-		<header className="flex items-center justify-between mt-8 mb-16 flex-wrap md:flex-nowrap">
+		<header className="flex items-center justify-between md:mt-8 mt-6 md:mb-28 mb-16 flex-wrap md:flex-nowrap relative rounded bg-white/20 backdrop-blur px-5 shadow-lg">
+			<div className="absolute w-full h-12 top-0 left-0 bg-gradient-to-r from-rose-600/80 to-blue-600/80 via-violet-600/80 blur-3xl -z-10"></div>
 			<Link href="/" passHref>
-				<a className="rounded font-bold text-stone-50 text-lg flex items-center justify-center relative w-12 h-12 bg-neutral-800 hover:border-stone-50 hover:border-solid hover:border-2 cursor-pointer">
+				<a className="font-bold text-stone-50 text-lg flex items-center justify-center relative w-12 h-12 cursor-pointer -left-3">
 					AR
 				</a>
 			</Link>
-			<HiOutlineMenuAlt4
-				onClick={toggle}
-				className="text-xl text-stone-50 md:hidden"
-			/>
+			<div className="text-xl text-stone-50 md:hidden">
+				{!expanded && <HiOutlineMenuAlt4 onClick={toggle} />}
+				{expanded && <HiOutlineX className="animate-pulse" onClick={toggle} />}
+			</div>
 			<nav
-				className={`md:relative absolute bg-neutral-900 w-full h-full z-50 ${
-					expanded ? 'top-0' : '-top-full'
-				} left-0 md:bg-transparent md:w-auto`}
+				className={`w-full md:w-auto md:max-h-16 overflow-hidden duration-300 ${
+					expanded ? 'max-h-48' : 'max-h-0'
+				}`}
 			>
-				<HiOutlineX
-					onClick={toggle}
-					className="absolute top-5 right-5 text-xl text-stone-50 md:hidden"
-				/>
-				<ul className="flex md:items-center md:mt-0 mt-20 md:flex-row flex-col md:p-0 p-4">
+				<ul className="flex md:items-center md:flex-row flex-col my-3 md:my-0">
 					{menuItems.map(({ text, path }) => (
 						<li key={text}>
 							<Link href={path} passHref>
 								<a
-									className={`font-medium hover:bg-neutral-700/50 inline-block py-2 px-3 rounded ${
-										router.pathname === path ? 'text-stone-50' : ''
-									}`}
+									className={`text-sm text-center w-full inline-block py-2 md:px-3 text-stone-50`}
 								>
 									{text}
 								</a>

@@ -6,7 +6,7 @@ import Link from 'next/link'
 const Home: NextPage = () => {
 	return (
 		<Container>
-			<div className="flex justify-between md:items-center md:flex-row-reverse md:flex-nowrap flex-wrap flex-col">
+			<div className="flex justify-between md:flex-row-reverse md:flex-nowrap flex-wrap flex-col">
 				<div className="relative h-28 w-28 md:mb-0 mb-12">
 					<Image
 						src="/headshot.jpg"
@@ -16,6 +16,9 @@ const Home: NextPage = () => {
 					/>
 				</div>
 				<div className="flex-1 md:mr-12">
+					<span className="mb-3 block font-medium text-stone-300">
+						Hello, I&apos;m
+					</span>
 					<h1 className="text-5xl font-extrabold">Abhin Rustagi</h1>
 					<h2 className="font-normal font-body text-lg text-neutral-300 my-3">
 						Product Engineer at{' '}
@@ -29,7 +32,7 @@ const Home: NextPage = () => {
 							</a>
 						</Link>
 					</h2>
-					<p>
+					<p className="mt-4">
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque
 						labore odit repellendus animi delectus dolorum soluta nemo porro est
 						aliquid voluptate.

@@ -1,5 +1,5 @@
-import { config, defaultSeoConfig } from 'helpers'
-import { DefaultSeo } from 'next-seo'
+import { config, defaultSeoConfig, isProd } from 'helpers'
+import { DefaultSeo, NextSeo } from 'next-seo'
 import type { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
@@ -15,12 +15,16 @@ function MyApp({ Component, pageProps }: AppProps) {
 	const router = useRouter()
 
 	const handleRouteChange = (url: string) => {
-		window.gtag('config', `${config.GOOGLE_ANALYTICS_ID}`, {
-			page_path: url,
-		})
+		if (typeof window !== 'undefined') {
+			window.gtag('config', `${config.GOOGLE_ANALYTICS_ID}`, {
+				page_path: url,
+			})
+		}
 	}
 
 	useEffect(() => {
+		if (!isProd) return
+
 		router.events.on('routeChangeComplete', handleRouteChange)
 		return () => {
 			router.events.off('routeChangeComplete', handleRouteChange)
@@ -30,6 +34,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 	return (
 		<>
 			<DefaultSeo {...defaultSeoConfig} />
+			{pageProps.seo && <NextSeo {...pageProps.seo} />}
 			<Component {...pageProps} />
 		</>
 	)
