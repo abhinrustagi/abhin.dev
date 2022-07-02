@@ -1,4 +1,4 @@
-import { Container, Header } from 'components'
+import { Container } from 'components'
 import type { NextPage } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'

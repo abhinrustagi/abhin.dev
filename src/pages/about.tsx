@@ -49,16 +49,10 @@ const About: NextPage = () => {
 
 export default About
 
-export const getStaticProps = (ctx: any) => {
-	console.log(ctx)
-
-	return {
-		props: {
-			seo: {
-				title: 'About Me',
-				canonical: 'https://www.abhin.dev/about',
-				openGraph: { url: 'https://www.abhin.dev/about' },
-			},
+export const getStaticProps = () => ({
+	props: {
+		seo: {
+			title: 'About Me',
 		},
-	}
-}
+	},
+})

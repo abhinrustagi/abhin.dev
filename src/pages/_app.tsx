@@ -14,6 +14,8 @@ declare global {
 function MyApp({ Component, pageProps }: AppProps) {
 	const router = useRouter()
 
+	const pathname = config.HOST + router.asPath
+
 	const handleRouteChange = (url: string) => {
 		if (typeof window !== 'undefined') {
 			window.gtag('config', `${config.GOOGLE_ANALYTICS_ID}`, {
@@ -34,7 +36,14 @@ function MyApp({ Component, pageProps }: AppProps) {
 	return (
 		<>
 			<DefaultSeo {...defaultSeoConfig} />
-			{pageProps.seo && <NextSeo {...pageProps.seo} />}
+			<NextSeo
+				// Hide Staging Deploys
+				nofollow={isProd ? false : true}
+				noindex={isProd ? false : true}
+				canonical={pathname}
+				openGraph={{ url: pathname }}
+				{...pageProps.seo}
+			/>
 			<Component {...pageProps} />
 		</>
 	)

@@ -1,15 +1,15 @@
 import { DefaultSeoProps } from 'next-seo'
+import { config } from 'helpers'
 
 export const defaultSeoConfig: DefaultSeoProps = {
 	titleTemplate: '%s – Abhin Rustagi',
 	defaultTitle: 'Abhin Rustagi – Developer',
 	description: 'lorem ipsum',
-	canonical: '',
+	canonical: config.HOST,
 	openGraph: {
-		url: '',
+		url: config.HOST,
 		type: 'website',
 		site_name: 'Abhin Rustagi',
-		locale: '',
 	},
 	twitter: {
 		cardType: 'summary',

@@ -3,6 +3,9 @@ module.exports = {
 	content: ['./src/**/*.{js,ts,jsx,tsx}'],
 	theme: {
 		extend: {
+			zIndex: {
+				1: '1',
+			},
 			fontFamily: {
 				heading: [
 					'DM Serif Display',
