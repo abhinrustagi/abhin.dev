@@ -1,4 +1,4 @@
-import { parseWakatimeData } from 'helpers'
+import { isProd, parseWakatimeData } from 'helpers'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
@@ -7,22 +7,24 @@ export const Wakatime = () => {
 		ok: boolean
 		data?: any
 		message?: string
-	}>()
+	}>({ ok: false })
 
 	useEffect(() => {
 		const req = async () => {
 			const wakatimeStats = await fetch('/api/wakatime').then(res => res.json())
 			const parsedData = parseWakatimeData(wakatimeStats)
 
-			setData(parsedData)
+			setData({ ...parsedData })
 		}
 
-		req()
+		if (isProd) req()
+
+		return () => setData({ ok: false })
 	}, [])
 
 	const renderWakatimeLanguageStats = data?.ok ? (
 		<ul className="flex flex-wrap">
-			{data?.data.map((language: any, index: number) => (
+			{data?.data.map((language: any) => (
 				<li key={language.name} className="flex items-center text-sm mb-2 mr-6">
 					<span className="relative inline-block mr-2 w-2 h-2 rounded-full bg-sky-500"></span>
 					<span className="text-stone-300 font-medium">{language.name}</span>
@@ -33,7 +35,9 @@ export const Wakatime = () => {
 		</ul>
 	) : (
 		<p className="text-stone-50 font-bold">
-			There was an error fetching data. 😕
+			{data.message
+				? 'There was an error fetching required data. 😕 ' + data.message
+				: 'Loading Data...'}
 		</p>
 	)
 

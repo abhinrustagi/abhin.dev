@@ -1,6 +1,7 @@
-import { Container, Header } from 'components'
+import { Container } from 'components'
 import type { NextPage } from 'next'
 import Link from 'next/link'
+import { SSG } from 'helpers'
 
 const About: NextPage = () => {
 	return (
@@ -49,10 +50,4 @@ const About: NextPage = () => {
 
 export default About
 
-export const getStaticProps = () => ({
-	props: {
-		seo: {
-			title: 'About Me',
-		},
-	},
-})
+export const getStaticProps = SSG.about

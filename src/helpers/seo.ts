@@ -46,3 +46,10 @@ export const defaultSeoConfig: DefaultSeoProps = {
 		},
 	],
 }
+
+export const SSG = {
+	about: () => ({ props: { seo: { title: 'About' } } }),
+	now: () => ({ props: { seo: { title: 'Now' } } }),
+	404: () => ({ props: { seo: { title: '404' } } }),
+	500: () => ({ props: { seo: { title: '500' } } }),
+}

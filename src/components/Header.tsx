@@ -2,11 +2,11 @@ import React from 'react'
 import Link from 'next/link'
 import { useState } from 'react'
 import { HiOutlineMenuAlt4, HiOutlineX } from 'react-icons/hi'
-import { useRouter } from 'next/router'
+import { useScrollTo } from 'hooks'
 
 export const Header = () => {
 	const [expanded, setExpanded] = useState(false)
-	const router = useRouter()
+	const onClickScrollTo = useScrollTo('footer')
 
 	const menuItems = [
 		{
@@ -14,6 +14,7 @@ export const Header = () => {
 			path: '/',
 		},
 		{ text: 'About', path: '/about' },
+		{ text: 'Now', path: '/now' },
 		{ text: 'Resume', path: '/resume' },
 	]
 
@@ -49,14 +50,8 @@ export const Header = () => {
 						</li>
 					))}
 					<li
-						onClick={() => {
-							toggle()
-							router.push({
-								pathname: router.asPath.split('#')[0],
-								hash: 'footer',
-							})
-						}}
-						className="text-sm text-center inline-block py-2 md:px-3 text-stone-50"
+						onClick={onClickScrollTo}
+						className="text-sm text-center inline-block py-2 md:px-3 text-stone-50 cursor-pointer"
 					>
 						Contact
 					</li>

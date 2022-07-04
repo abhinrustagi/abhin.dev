@@ -2,7 +2,6 @@ import { Container } from 'components'
 import type { NextPage } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Wakatime } from 'sections'
 
 const Home: NextPage = () => {
 	return (
@@ -40,7 +39,6 @@ const Home: NextPage = () => {
 					</p>
 				</div>
 			</div>
-			<Wakatime />
 		</Container>
 	)
 }
