@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	// reactStrictMode: true,
+	images: {
+		domains: ['res.cloudinary.com'],
+	},
 	env: {
 		GOOGLE_ANALYTICS: process.env.GOOGLE_ANALYTICS,
 		HOST: process.env.HOST,

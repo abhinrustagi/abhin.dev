@@ -13,8 +13,11 @@ const components = {
 	),
 	h3: (props: IHeading) => <h3 className="text-lg font-bold my-4" {...props} />,
 	ul: (props: IList) => <ul className="pl-5 list-disc" {...props} />,
+	li: (props: any) => (
+		<li className="leading-7 text-neutral-200 mb-6" {...props} />
+	),
 	p: (props: React.HTMLProps<HTMLParagraphElement>) => (
-		<p className="my-3" {...props} />
+		<p className="my-3 text-neutral-200" {...props} />
 	),
 	a: (props: any) => <a className="text-sky-400 underline" {...props} />,
 }

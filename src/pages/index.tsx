@@ -10,7 +10,7 @@ const Home: NextPage = () => {
 				<div className="relative h-28 w-28 md:mb-0 mb-12">
 					<Image
 						src="/headshot.jpg"
-						alt=""
+						alt="Abhin Rustagi Profile"
 						layout="fill"
 						className="rounded-full"
 					/>
@@ -20,22 +20,14 @@ const Home: NextPage = () => {
 						Hello, I&apos;m
 					</span>
 					<h1 className="text-5xl font-extrabold">Abhin Rustagi</h1>
-					<h2 className="font-normal font-body text-lg text-neutral-300 my-3">
+
+					<p className="mt-6 text-lg">
 						Product Engineer at{' '}
 						<Link href="https://www.openhouse.study" passHref>
-							<a
-								target="_blank"
-								rel="noopener noreferrer"
-								className="hover:text-neutral-500 text-neutral-200 font-medium"
-							>
-								Openhouse
-							</a>
+							<a className="text-stone-50">Openhouse </a>
 						</Link>
-					</h2>
-					<p className="mt-4">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque
-						labore odit repellendus animi delectus dolorum soluta nemo porro est
-						aliquid voluptate.
+						– Curious developer, who enjoys creating user-first products that
+						help deliver experiences.
 					</p>
 				</div>
 			</div>

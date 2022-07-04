@@ -34,7 +34,7 @@ export const Header = () => {
 			</div>
 			<nav
 				className={`w-full md:w-auto z-10 md:max-h-16 overflow-hidden duration-300 ${
-					expanded ? 'max-h-48' : 'max-h-0'
+					expanded ? 'max-h-48 mb-3 md:mb-0' : 'max-h-0'
 				}`}
 			>
 				<ul className="flex md:items-center md:flex-row flex-col my-3 md:my-0">
@@ -50,7 +50,10 @@ export const Header = () => {
 						</li>
 					))}
 					<li
-						onClick={onClickScrollTo}
+						onClick={() => {
+							toggle()
+							onClickScrollTo()
+						}}
 						className="text-sm text-center inline-block py-2 md:px-3 text-stone-50 cursor-pointer"
 					>
 						Contact
