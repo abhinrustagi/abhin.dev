@@ -1,6 +1,7 @@
 import { isProd, parseWakatimeData } from 'helpers'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
+import { FiLoader } from 'react-icons/fi'
 
 export const Wakatime = () => {
 	const [data, setData] = useState<{
@@ -35,14 +36,19 @@ export const Wakatime = () => {
 		</ul>
 	) : (
 		<p className="text-stone-50 font-bold">
-			{data.message
-				? 'There was an error fetching required data. 😕 ' + data.message
-				: 'Loading Data...'}
+			{data.message ? (
+				'There was an error fetching required data. 😕 ' + data.message
+			) : (
+				<span className="flex items-center">
+					<FiLoader className="text-xl mr-3 motion-safe:animate-spin" />{' '}
+					Fetching data
+				</span>
+			)}
 		</p>
 	)
 
 	return (
-		<section className="rounded-lg relative bg-white/10 p-8 backdrop-blur-lg shadow-md my-12">
+		<section className="rounded-lg relative bg-white/5 p-8 backdrop-blur-lg shadow-lg border border-solid border-zinc-800 my-12">
 			<h2 className="text-xl">Recent Activity</h2>
 			<p className="mt-2 mb-4 text-sm">Recorded data for the last 7 days</p>
 			{renderWakatimeLanguageStats}

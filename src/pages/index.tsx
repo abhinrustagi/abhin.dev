@@ -17,15 +17,15 @@ const Home: NextPage = () => {
 				</div>
 				<div className="flex-1 md:mr-12">
 					<span className="mb-3 block font-medium text-stone-300">
-						Hello, I&apos;m
+						Hello, I am
 					</span>
 					<h1 className="text-5xl font-extrabold">Abhin Rustagi</h1>
 
-					<p className="mt-6 text-lg">
+					<p className="mt-6">
 						Product Engineer at{' '}
 						<Link href="https://www.openhouse.study" passHref>
-							<a className="text-stone-50">Openhouse </a>
-						</Link>
+							<a>Openhouse</a>
+						</Link>{' '}
 						– Curious developer, who enjoys creating user-first products that
 						help deliver experiences.
 					</p>

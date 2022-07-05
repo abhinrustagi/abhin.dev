@@ -16,12 +16,14 @@ body {
 	@apply bg-neutral-900 text-stone-400;
 	padding: 0;
 	margin: 0;
-	font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-		Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	font-family: 'Roboto Mono', Inter, -apple-system, BlinkMacSystemFont, Segoe UI,
+		Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+		sans-serif;
 }
 
 a {
-	color: inherit;
+	@apply text-sky-500 hover:underline;
+	font-family: inherit;
 	text-decoration: none;
 }
 

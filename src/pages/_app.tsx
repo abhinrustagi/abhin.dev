@@ -4,7 +4,6 @@ import type { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import '../styles/globals.css'
-import { SWRConfig } from 'swr'
 
 declare global {
 	interface Window {
@@ -38,11 +37,11 @@ function MyApp({ Component, pageProps }: AppProps) {
 		<>
 			<DefaultSeo {...defaultSeoConfig} />
 			<NextSeo
+				canonical={pathname}
+				openGraph={{ url: pathname }}
 				// Hide Staging Deploys
 				nofollow={isProd ? false : true}
 				noindex={isProd ? false : true}
-				canonical={pathname}
-				openGraph={{ url: pathname }}
 				{...pageProps.seo}
 			/>
 			<Component {...pageProps} />

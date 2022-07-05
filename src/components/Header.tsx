@@ -3,10 +3,12 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { HiOutlineMenuAlt4, HiOutlineX } from 'react-icons/hi'
 import { useScrollTo } from 'hooks'
+import { useRouter } from 'next/router'
 
 export const Header = () => {
 	const [expanded, setExpanded] = useState(false)
 	const onClickScrollTo = useScrollTo('footer')
+	const router = useRouter()
 
 	const menuItems = [
 		{
@@ -24,7 +26,7 @@ export const Header = () => {
 		<header className="flex items-center justify-between md:mt-8 mt-6 md:mb-28 mb-16 flex-wrap md:flex-nowrap relative rounded bg-white/20 backdrop-blur px-5 shadow-lg z-1">
 			<div className="absolute w-full h-12 top-0 left-0 bg-gradient-to-r from-rose-600/80 to-blue-600/80 via-violet-600/80 blur-3xl z-0"></div>
 			<Link href="/" passHref>
-				<a className="font-bold text-stone-50 z-10 text-lg flex items-center justify-center relative w-12 h-12 cursor-pointer -left-3">
+				<a className="font-medium text-stone-50 z-10 text-lg flex items-center justify-center relative w-12 h-12 cursor-pointer -left-3">
 					AR
 				</a>
 			</Link>
@@ -42,7 +44,9 @@ export const Header = () => {
 						<li key={text}>
 							<Link href={path} passHref>
 								<a
-									className={`text-sm text-center w-full inline-block py-2 md:px-3 text-stone-50`}
+									className={`text-sm text-center w-full inline-block py-2 md:px-3 text-stone-50 ${
+										router.pathname === path ? 'underline' : ''
+									}`}
 								>
 									{text}
 								</a>
