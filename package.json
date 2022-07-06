@@ -6,7 +6,8 @@
 		"start": "next start",
 		"lint": "next lint",
 		"prepare": "husky install",
-		"postbuild": "next-sitemap"
+		"postbuild": "next-sitemap",
+		"dev:prod": "env-cmd -f .env.production next dev"
 	},
 	"dependencies": {
 		"@mdx-js/react": "^2.1.2",
@@ -26,6 +27,7 @@
 		"@types/react": "18.0.14",
 		"@types/react-dom": "18.0.5",
 		"autoprefixer": "^10.4.7",
+		"env-cmd": "^10.1.0",
 		"eslint": "8.18.0",
 		"eslint-config-next": "12.1.6",
 		"husky": "^8.0.1",
