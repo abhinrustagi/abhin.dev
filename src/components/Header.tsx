@@ -58,7 +58,7 @@ export const Header = () => {
 							toggle()
 							onClickScrollTo()
 						}}
-						className="text-sm text-center inline-block py-2 md:px-3 text-stone-50 cursor-pointer"
+						className="text-sm text-center inline-block py-2 md:px-3 text-stone-50 cursor-pointer hover:underline"
 					>
 						Contact
 					</li>

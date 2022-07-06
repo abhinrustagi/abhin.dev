@@ -1,14 +1,30 @@
-import { config, defaultSeoConfig, isProd } from 'helpers'
+import { config, defaultSeoConfig, ga, isProd } from 'helpers'
 import { DefaultSeo, NextSeo } from 'next-seo'
-import type { AppProps } from 'next/app'
+import type { AppProps, NextWebVitalsMetric } from 'next/app'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import '../styles/globals.css'
 
-declare global {
-	interface Window {
-		gtag: (...args: any) => void
+export function reportWebVitals({
+	name,
+	label,
+	value,
+	id,
+}: NextWebVitalsMetric) {
+	if (!isProd) {
+		console.log({ name, label, value, id })
+		return
 	}
+
+	ga.event({
+		action: name,
+		params: {
+			event_category: label,
+			value: Math.round(name === 'CLS' ? value * 1000 : value),
+			event_label: id,
+			non_interaction: true,
+		},
+	})
 }
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -18,9 +34,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
 	const handleRouteChange = (url: string) => {
 		if (typeof window !== 'undefined') {
-			window.gtag('config', `${config.GOOGLE_ANALYTICS_ID}`, {
-				page_path: url,
-			})
+			ga.pageView(url)
 		}
 	}
 
