@@ -18,7 +18,7 @@ export const Wakatime = () => {
 			setData({ ...parsedData })
 		}
 
-		if (isProd) req()
+		req()
 
 		return () => setData({ ok: false })
 	}, [])
@@ -30,7 +30,7 @@ export const Wakatime = () => {
 					<span className="relative inline-block mr-2 w-2 h-2 rounded-full bg-sky-500"></span>
 					<span className="text-stone-300 font-medium">{language.name}</span>
 					&nbsp;&nbsp;
-					<span className="text-neutral-400">{language.percent}%</span>
+					<span className="text-neutral-400">{language.text}</span>
 				</li>
 			))}
 		</ul>
