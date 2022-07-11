@@ -18,7 +18,7 @@ export const Wakatime = () => {
 			setData({ ...parsedData })
 		}
 
-		if (isProd) req()
+		req()
 
 		return () => setData({ ok: false })
 	}, [])
