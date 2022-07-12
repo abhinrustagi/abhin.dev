@@ -17,7 +17,10 @@ export const Header = () => {
 		},
 		{ text: 'About', path: '/about' },
 		{ text: 'Now', path: '/now' },
-		{ text: 'Resume', path: '/resume' },
+		{
+			text: 'Resume',
+			path: 'https://drive.google.com/file/d/1LdTr0wCjW77fOeAPjlLkrEbBQvKarzzi/view?usp=sharing',
+		},
 	]
 
 	const toggle = () => setExpanded(!expanded)

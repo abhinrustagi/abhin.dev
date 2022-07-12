@@ -14,7 +14,7 @@ export const Footer = () => {
 		{ title: 'Now', href: '/now' },
 		{ title: 'Blog', href: '/blog' },
 		{ title: 'Books', href: '/books' },
-		{ title: 'Books', href: '/books' },
+		{ title: 'Uses', href: '/uses' },
 	]
 
 	return (
@@ -31,7 +31,6 @@ export const Footer = () => {
 				</Link>
 				.
 			</p>
-			<ul></ul>
 			<ul className="flex flex-wrap mt-8 mb-16">
 				{socials.map(social => (
 					<li key={social.media} className="mr-5 mb-3 hover:text-stone-50">
