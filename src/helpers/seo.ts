@@ -53,4 +53,5 @@ export const SSG = {
 	404: () => ({ props: { seo: { title: '404' } } }),
 	500: () => ({ props: { seo: { title: '500' } } }),
 	uses: () => ({ props: { seo: { title: 'Uses' } } }),
+	books: () => ({ props: { seo: { title: 'Books' } } }),
 }
